@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mark Graphics | Fekadu Markos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Fekadu Markos - Premium Graphic Designer & Software Engineering Student Portfolio">
+    <title>Fekadu Markos | Creative Engineer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -12,49 +18,58 @@
 <div class="page-wrapper">
     <header>
         <div class="logo">Mark Graphics</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a onclick="openModal('aboutModal')">About</a></li>
-            <li><a onclick="openModal('portfolioModal')">Portfolio</a></li>
-            <li><a onclick="openModal('contactModal')">Contact</a></li>
-        </ul>
-       <a href="assets/docs/Fekadu-Markos-CV.pdf" target="_blank" class="btn-cv">View CV</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a onclick="openModal('aboutModal')">About</a></li>
+                <li><a onclick="openModal('portfolioModal')">Portfolio</a></li>
+                <li><a onclick="openModal('contactModal')">Contact</a></li>
+                <li><a href="assets/docs/Fekadu-Markos-CV.pdf" target="_blank" class="btn-cv">View CV</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="hero">
         <div class="hero-text">
-            <span style="color:var(--primary-blue); font-weight:700;">Hello</span>
+            <span class="hello-tag">Creative Mind</span>
             <h1>I'm <span>Fekadu Markos</span></h1>
             <p class="job">Graphic Designer & Software Engineering Student</p>
-            <p>I specialize in creating clean, modern, and visually engaging designs that communicate ideas clearly and effectively.</p>
+            <p>Merging artistic vision with engineering precision. I craft high-impact visual identities and digital experiences that resonate.</p>
             
             <div class="hero-actions">
-                <button class="btn-about" onclick="openModal('aboutModal')">About Me</button>
+                <button class="btn-about" onclick="openModal('aboutModal')">Explore Story</button>
                 <div class="socials">
-                    <a href="https://www.facebook.com/fekadu.mark" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/fekadu_markos?igsh=MTRtdzF6azQ4OXNpbQ==" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://t.me/Fekadu_Markos" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-                    <a href="https://www.linkedin.com/in/fekadu-markos-a44a76320" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/fekadu.mark" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/fekadu_markos" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/Fekadu_Markos" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="https://www.linkedin.com/in/fekadu-markos-a44a76320" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
 
         <div class="hero-image-container">
-            <img src="assets/images/po.jpg" alt="Fekadu Markos" class="center-profile-img">
+            <img src="assets/images/po.jpg" alt="Fekadu Markos Profile" class="center-profile-img">
             <div class="orbit-track">
-                <div class="software-icon ai">Ai</div>
-                <div class="software-icon ps">Ps</div>
-                <div class="software-icon ae">Ae</div>
+                <div class="software-icon ai" title="Adobe Illustrator">Ai</div>
+                <div class="software-icon ps" title="Adobe Photoshop">Ps</div>
+                <div class="software-icon ae" title="Adobe After Effects">Ae</div>
             </div>
         </div>
     </main>
 </div>
 
+<!-- Modals -->
 <div class="modal-overlay" id="aboutModal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('aboutModal')">&times;</span>
-        <h2 class="modal-title">About Me</h2>
-        <p style="margin-top:20px; line-height:1.8; color:var(--text-gray);">My name is <strong>Fekadu Markos</strong>, a passionate graphic designer based in Ethiopia and a software engineering student. I approach design with both creativity and logic, delivering designs that are visually appealing and purposeful.</p>
+        <h2 class="modal-title">My Story</h2>
+        <div style="margin-top:2rem;">
+            <p style="font-size:1.2rem; line-height:2;">
+                Based in the heart of Ethiopia, I am <strong>Fekadu Markos</strong>—a creator standing at the intersection of design and technology. 
+                As a software engineering student, I don't just design interfaces; I understand the architecture behind them. 
+                Whether it's a minimal brand identity or a complex Web UI, my goal is to deliver excellence through logic and creativity.
+            </p>
+        </div>
     </div>
 </div>
 
@@ -62,58 +77,47 @@
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('portfolioModal')">&times;</span>
         <h2 class="modal-title">Portfolio</h2>
-        <p style="color:var(--text-gray); margin-top:10px;">A selection of my works that showcase visual storytelling and technical skill.</p>
-        
         <div class="portfolio-grid">
             <div class="project-card">
-                <h3>Logo Design</h3>
-                <p>Establishing strong brand identities with clean, minimal, and balanced concepts.</p>
-                <div class="tools-box">Tools: Adobe Illustrator</div>
+                <h3>Visual Branding</h3>
+                <p>Minimalist logos and complete brand systems that speak volumes.</p>
+                <div class="tools-box">Illustrator</div>
             </div>
             <div class="project-card">
-                <h3>Branding & Identity</h3>
-                <p>Complete professional visual systems including color palettes and typography.</p>
-                <div class="tools-box">Tools: Illustrator, Photoshop</div>
+                <h3>UI/UX Design</h3>
+                <p>User-centric interfaces optimized for conversion and clarity.</p>
+                <div class="tools-box">Figma / Photoshop</div>
             </div>
             <div class="project-card">
-                <h3>Social Media Design</h3>
-                <p>Engaging creative posts designed to increase brand visibility and audience growth.</p>
-                <div class="tools-box">Tools: Photoshop</div>
+                <h3>Motion Design</h3>
+                <p>Dynamic animations that bring static designs to life with fluid motion.</p>
+                <div class="tools-box">After Effects</div>
             </div>
             <div class="project-card">
-                <h3>UI / Web Design</h3>
-                <p>User-friendly website interfaces designed with intuitive layouts and modern structures.</p>
-                <div class="tools-box">Tools: Figma, Photoshop</div>
+                <h3>Digital Content</h3>
+                <p>High-conversion social media assets and digital marketing collateral.</p>
+                <div class="tools-box">Photoshop / Canva</div>
             </div>
         </div>
-
-        <div class="role-section">
-            <h3 style="margin-bottom:5px;">My Role: Graphic Designer</h3>
-            <p style="font-size:14px; opacity:0.9;">Concept development, visual design, layout, and presentation.</p>
-            <p style="font-size:12px; margin-top:10px; font-weight:700; color: #5d78ff;">SKILLS: Branding, UI Design, Color Theory, Creative Strategy</p>
-        </div>
-
-        <button class="btn-send" style="width:auto; padding:12px 35px; margin-top:25px;" onclick="openModal('contactModal')">Work With Me</button>
     </div>
 </div>
 
 <div class="modal-overlay" id="contactModal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('contactModal')">&times;</span>
-        <h2 class="modal-title">Contact Me</h2>
+        <h2 class="modal-title">Get In Touch</h2>
         <div class="contact-grid">
-            <div class="contact-info-box">
-                <h4>Contact Details</h4>
-                <p style="margin-top:15px;"><i class="fas fa-envelope"></i> fekemark6@gmail.com</p>
-                <p><i class="fab fa-whatsapp"></i> +251 927 290 916</p>
-                <p><i class="fas fa-map-marker-alt"></i> Ethiopia</p>
+            <div>
+                <h3>Connect Directly</h3>
+                <p style="margin-top:2rem;"><i class="fas fa-envelope" style="color:var(--primary);"></i> fekemark6@gmail.com</p>
+                <p><i class="fab fa-whatsapp" style="color:var(--primary);"></i> +251 927 290 916</p>
+                <p><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Addis Ababa, Ethiopia</p>
             </div>
-            <div class="contact-form">
-                <h4>Send Message</h4>
+            <form class="contact-form">
                 <input type="text" id="clientName" placeholder="Your Name" required>
-                <textarea id="clientMessage" placeholder="Your Message" rows="4" required></textarea>
-                <button type="button" class="btn-send" onclick="sendToGmail()">Send Message</button>
-            </div>
+                <textarea id="clientMessage" placeholder="Tell me about your project" rows="4" required></textarea>
+                <button type="button" class="btn-send" onclick="sendToGmail()">Initiate Inquiry</button>
+            </form>
         </div>
     </div>
 </div>
