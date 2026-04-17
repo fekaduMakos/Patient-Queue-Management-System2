@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Graphics | Fekadu Markos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+    <header>
+        <div class="logo">Mark Graphics</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a onclick="openModal('aboutModal')">About</a></li>
+            <li><a onclick="openModal('portfolioModal')">Portfolio</a></li>
+            <li><a onclick="openModal('contactModal')">Contact</a></li>
+        </ul>
+       <a href="assets/docs/Fekadu-Markos-CV.pdf" target="_blank" class="btn-cv">View CV</a>
+    </header>
+
+    <main class="hero">
+        <div class="hero-text">
+            <span style="color:var(--primary-blue); font-weight:700;">Hello</span>
+            <h1>I'm <span>Fekadu Markos</span></h1>
+            <p class="job">Graphic Designer & Software Engineering Student</p>
+            <p>I specialize in creating clean, modern, and visually engaging designs that communicate ideas clearly and effectively.</p>
+            
+            <div class="hero-actions">
+                <button class="btn-about" onclick="openModal('aboutModal')">About Me</button>
+                <div class="socials">
+                    <a href="https://www.facebook.com/fekadu.mark" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/fekadu_markos?igsh=MTRtdzF6azQ4OXNpbQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/Fekadu_Markos" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="https://www.linkedin.com/in/fekadu-markos-a44a76320" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image-container">
+            <img src="assets/images/po.jpg" alt="Fekadu Markos" class="center-profile-img">
+            <div class="orbit-track">
+                <div class="software-icon ai">Ai</div>
+                <div class="software-icon ps">Ps</div>
+                <div class="software-icon ae">Ae</div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div class="modal-overlay" id="aboutModal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('aboutModal')">&times;</span>
+        <h2 class="modal-title">About Me</h2>
+        <p style="margin-top:20px; line-height:1.8; color:var(--text-gray);">My name is <strong>Fekadu Markos</strong>, a passionate graphic designer based in Ethiopia and a software engineering student. I approach design with both creativity and logic, delivering designs that are visually appealing and purposeful.</p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="portfolioModal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('portfolioModal')">&times;</span>
+        <h2 class="modal-title">Portfolio</h2>
+        <p style="color:var(--text-gray); margin-top:10px;">A selection of my works that showcase visual storytelling and technical skill.</p>
+        
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <h3>Logo Design</h3>
+                <p>Establishing strong brand identities with clean, minimal, and balanced concepts.</p>
+                <div class="tools-box">Tools: Adobe Illustrator</div>
+            </div>
+            <div class="project-card">
+                <h3>Branding & Identity</h3>
+                <p>Complete professional visual systems including color palettes and typography.</p>
+                <div class="tools-box">Tools: Illustrator, Photoshop</div>
+            </div>
+            <div class="project-card">
+                <h3>Social Media Design</h3>
+                <p>Engaging creative posts designed to increase brand visibility and audience growth.</p>
+                <div class="tools-box">Tools: Photoshop</div>
+            </div>
+            <div class="project-card">
+                <h3>UI / Web Design</h3>
+                <p>User-friendly website interfaces designed with intuitive layouts and modern structures.</p>
+                <div class="tools-box">Tools: Figma, Photoshop</div>
+            </div>
+        </div>
+
+        <div class="role-section">
+            <h3 style="margin-bottom:5px;">My Role: Graphic Designer</h3>
+            <p style="font-size:14px; opacity:0.9;">Concept development, visual design, layout, and presentation.</p>
+            <p style="font-size:12px; margin-top:10px; font-weight:700; color: #5d78ff;">SKILLS: Branding, UI Design, Color Theory, Creative Strategy</p>
+        </div>
+
+        <button class="btn-send" style="width:auto; padding:12px 35px; margin-top:25px;" onclick="openModal('contactModal')">Work With Me</button>
+    </div>
+</div>
+
+<div class="modal-overlay" id="contactModal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('contactModal')">&times;</span>
+        <h2 class="modal-title">Contact Me</h2>
+        <div class="contact-grid">
+            <div class="contact-info-box">
+                <h4>Contact Details</h4>
+                <p style="margin-top:15px;"><i class="fas fa-envelope"></i> fekemark6@gmail.com</p>
+                <p><i class="fab fa-whatsapp"></i> +251 927 290 916</p>
+                <p><i class="fas fa-map-marker-alt"></i> Ethiopia</p>
+            </div>
+            <div class="contact-form">
+                <h4>Send Message</h4>
+                <input type="text" id="clientName" placeholder="Your Name" required>
+                <textarea id="clientMessage" placeholder="Your Message" rows="4" required></textarea>
+                <button type="button" class="btn-send" onclick="sendToGmail()">Send Message</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="assets/js/script.js"></script>
+
+</body>
+</html>
