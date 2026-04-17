@@ -1,170 +1,411 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mark Graphics | Fekadu Markos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Fekadu Markos — Premium Graphic Designer & Software Engineering Student. Crafting world-class visual identities and digital experiences.">
+    <title>Fekadu Markos | Creative Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-    <div class="page-wrapper">
-        <header>
-            <div class="logo">Mark Graphics</div>
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Mark<span>.</span></a>
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a onclick="openModal('aboutModal')">About</a></li>
-                <li><a onclick="openModal('portfolioModal')">Portfolio</a></li>
-                <li><a onclick="openModal('contactModal')">Contact</a></li>
-                <li><button id="themeToggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button></li>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <a href="assets/docs/Fekadu-Markos-CV.pdf" target="_blank" class="btn-cv">View CV</a>
-        </header>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="assets/docs/Fekadu-Markos-CV.pdf" target="_blank" class="btn-primary">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+            </div>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
 
-        <main class="hero">
-            <div class="hero-text">
-                <span style="color:var(--primary-blue); font-weight:700;">Hello</span>
-                <h1>I'm <span>Fekadu Markos</span></h1>
-                <p class="job">Graphic Designer & Software Engineering Student</p>
-                <p>I specialize in creating clean, modern, and visually engaging designs that communicate ideas clearly
-                    and effectively.</p>
-
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-text" data-aos="fade-right">
+                <span class="tag">👋 Available for Work</span>
+                <h1>I'm <span class="gradient-text" id="typingText"></span></h1>
+                <p class="hero-sub">Graphic Designer & Software Engineering Student</p>
+                <p class="hero-desc">I craft <strong>high-impact visual identities</strong>, stunning UI designs, and digital experiences that set brands apart from the competition.</p>
                 <div class="hero-actions">
-                    <button class="btn-about" onclick="openModal('aboutModal')">About Me</button>
-                    <div class="socials">
-                        <a href="https://www.facebook.com/fekadu.mark" target="_blank"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/fekadu_markos?igsh=MTRtdzF6azQ4OXNpbQ==" target="_blank"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="https://t.me/Fekadu_Markos" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-                        <a href="https://www.linkedin.com/in/fekadu-markos-a44a76320" target="_blank"><i
-                                class="fab fa-linkedin-in"></i></a>
+                    <a href="#portfolio" class="btn-primary">View My Work <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn-outline">Hire Me</a>
+                </div>
+                <div class="socials">
+                    <a href="https://www.facebook.com/fekadu.mark" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/fekadu_markos" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/Fekadu_Markos" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="https://www.linkedin.com/in/fekadu-markos-a44a76320" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="hero-visual" data-aos="fade-left">
+                <div class="profile-ring">
+                    <img src="assets/images/po.jpg" alt="Fekadu Markos" class="profile-img">
+                    <div class="orbit">
+                        <div class="orbit-icon ai">Ai</div>
+                        <div class="orbit-icon ps">Ps</div>
+                        <div class="orbit-icon ae">Ae</div>
+                    </div>
+                </div>
+                <div class="floating-card card-1">
+                    <i class="fas fa-star"></i>
+                    <div>
+                        <strong>50+</strong>
+                        <span>Projects Done</span>
+                    </div>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <strong>30+</strong>
+                        <span>Happy Clients</span>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
+        </div>
+    </section>
 
-            <div class="hero-image-container">
-                <img src="assets/images/po.jpg" alt="Fekadu Markos" class="center-profile-img">
-                <div class="orbit-track">
-                    <div class="software-icon ai">Ai</div>
-                    <div class="software-icon ps">Ps</div>
-                    <div class="software-icon ae">Ae</div>
+    <!-- ========== STATS ========== -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item" data-aos="fade-up">
+                <h3 class="counter" data-target="50">0</h3>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-delay="100">
+                <h3 class="counter" data-target="30">0</h3>
+                <p>Happy Clients</p>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-delay="200">
+                <h3 class="counter" data-target="3">0</h3>
+                <p>Years Experience</p>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-delay="300">
+                <h3 class="counter" data-target="100">0</h3>
+                <p>% Satisfaction</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">About Me</span>
+                <h2>Passion Meets <span class="gradient-text">Precision</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-img-wrap" data-aos="fade-right">
+                    <img src="assets/images/po.jpg" alt="Fekadu Markos" class="about-img">
+                    <div class="about-badge">
+                        <i class="fas fa-palette"></i>
+                        <span>Creative Designer</span>
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <p>I am <strong>Fekadu Markos</strong>, a graphic designer and software engineering student based in Ethiopia. I stand at the intersection of art and technology — creating visual solutions that are both beautiful and functional.</p>
+                    <p>Whether it's a minimal logo, a complete brand identity, or a website UI, I deliver excellence through creativity and engineering logic.</p>
+                    <div class="skills-list">
+                        <div class="skill-item"><div class="skill-header"><span>Graphic Design</span><span>95%</span></div><div class="progress-bar"><div class="progress-fill" data-width="95"></div></div></div>
+                        <div class="skill-item"><div class="skill-header"><span>UI / UX Design</span><span>85%</span></div><div class="progress-bar"><div class="progress-fill" data-width="85"></div></div></div>
+                        <div class="skill-item"><div class="skill-header"><span>Brand Identity</span><span>90%</span></div><div class="progress-bar"><div class="progress-fill" data-width="90"></div></div></div>
+                        <div class="skill-item"><div class="skill-header"><span>Motion Design</span><span>75%</span></div><div class="progress-bar"><div class="progress-fill" data-width="75"></div></div></div>
+                    </div>
+                    <a href="assets/docs/Fekadu-Markos-CV.pdf" target="_blank" class="btn-primary">Download CV <i class="fas fa-download"></i></a>
                 </div>
             </div>
-        </main>
-    </div>
+        </div>
+    </section>
 
-    <div class="modal-overlay" id="aboutModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('aboutModal')">&times;</span>
-            <h2 class="modal-title">About Me</h2>
-            <div class="about-section">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Personal Bio</h3>
-                        <p style="line-height:1.8; color:var(--text-secondary);">
-                            My name is <strong>Fekadu Markos</strong>, a passionate graphic designer and software engineering student based in Ethiopia. 
-                            I approach design with both culinary-like attention to detail and engineering logic, delivering results that are both visually stunning and highly functional.
-                        </p>
-                        <p style="margin-top:15px; line-height:1.8; color:var(--text-secondary);">
-                            With a strong foundation in visual communication and a deep understanding of software development, I bridge the gap between aesthetics and technology.
-                        </p>
+    <!-- ========== SERVICES ========== -->
+    <section class="section services-section" id="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">What I Do</span>
+                <h2>My <span class="gradient-text">Services</span></h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-delay="0">
+                    <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
+                    <h3>Logo & Branding</h3>
+                    <p>Memorable logos and complete brand systems that communicate your identity with clarity and purpose.</p>
+                    <span class="service-tag">Adobe Illustrator</span>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-delay="100">
+                    <div class="service-icon"><i class="fas fa-desktop"></i></div>
+                    <h3>UI / UX Design</h3>
+                    <p>User-centered interfaces for web and mobile that are intuitive, modern, and highly engaging.</p>
+                    <span class="service-tag">Figma · Photoshop</span>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-delay="200">
+                    <div class="service-icon"><i class="fas fa-share-alt"></i></div>
+                    <h3>Social Media Design</h3>
+                    <p>Eye-catching creative posts and campaigns designed to boost engagement and brand awareness.</p>
+                    <span class="service-tag">Photoshop · Canva</span>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-delay="300">
+                    <div class="service-icon"><i class="fas fa-film"></i></div>
+                    <h3>Motion Design</h3>
+                    <p>Dynamic animations and motion graphics that bring your visual content to life with style.</p>
+                    <span class="service-tag">After Effects</span>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-delay="400">
+                    <div class="service-icon"><i class="fas fa-print"></i></div>
+                    <h3>Print Design</h3>
+                    <p>Professional flyers, brochures, banners, and business cards ready for print production.</p>
+                    <span class="service-tag">Illustrator · InDesign</span>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-delay="500">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Clean, responsive websites built with modern HTML, CSS, and JavaScript. Design meets code.</p>
+                    <span class="service-tag">HTML · CSS · JS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PORTFOLIO ========== -->
+    <section class="section portfolio-section" id="portfolio">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">My Work</span>
+                <h2>Featured <span class="gradient-text">Projects</span></h2>
+            </div>
+            <div class="portfolio-filter" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="ui">UI Design</button>
+                <button class="filter-btn" data-filter="social">Social Media</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card" data-category="branding" data-aos="fade-up">
+                    <div class="portfolio-img-wrap">
+                        <div class="portfolio-placeholder branding-card">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Brand Identity</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <p>Coffee House Branding</p>
+                            <span>Logo + Brand Identity</span>
+                        </div>
                     </div>
-                    <div class="skills-section">
-                        <h3>Professional Skills</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <h4>Graphic Design</h4>
-                                <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <h4>UI/UX Design</h4>
-                                <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <h4>Software Development</h4>
-                                <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <h4>Brand Identity</h4>
-                                <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
-                            </div>
+                    <div class="portfolio-info"><h4>Coffee House Branding</h4><span class="portfolio-tag">Branding</span></div>
+                </div>
+                <div class="portfolio-card" data-category="ui" data-aos="fade-up" data-delay="100">
+                    <div class="portfolio-img-wrap">
+                        <div class="portfolio-placeholder ui-card">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>UI Design</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <p>E-Commerce App UI</p>
+                            <span>Figma · Prototype</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info"><h4>E-Commerce App UI</h4><span class="portfolio-tag">UI Design</span></div>
+                </div>
+                <div class="portfolio-card" data-category="social" data-aos="fade-up" data-delay="200">
+                    <div class="portfolio-img-wrap">
+                        <div class="portfolio-placeholder social-card">
+                            <i class="fas fa-hashtag"></i>
+                            <span>Social Media</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <p>Fashion Brand Campaign</p>
+                            <span>Instagram Posts</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info"><h4>Fashion Brand Campaign</h4><span class="portfolio-tag">Social Media</span></div>
+                </div>
+                <div class="portfolio-card" data-category="branding" data-aos="fade-up" data-delay="300">
+                    <div class="portfolio-img-wrap">
+                        <div class="portfolio-placeholder tech-card">
+                            <i class="fas fa-microchip"></i>
+                            <span>Tech Logo</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <p>Tech Startup Logo</p>
+                            <span>Illustrator</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info"><h4>Tech Startup Logo</h4><span class="portfolio-tag">Branding</span></div>
+                </div>
+                <div class="portfolio-card" data-category="ui" data-aos="fade-up" data-delay="400">
+                    <div class="portfolio-img-wrap">
+                        <div class="portfolio-placeholder web-card">
+                            <i class="fas fa-globe"></i>
+                            <span>Web Design</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <p>Restaurant Website</p>
+                            <span>Figma · HTML/CSS</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info"><h4>Restaurant Website</h4><span class="portfolio-tag">UI Design</span></div>
+                </div>
+                <div class="portfolio-card" data-category="social" data-aos="fade-up" data-delay="500">
+                    <div class="portfolio-img-wrap">
+                        <div class="portfolio-placeholder event-card">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Event Design</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <p>Music Festival Poster</p>
+                            <span>Photoshop</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info"><h4>Music Festival Poster</h4><span class="portfolio-tag">Social Media</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS ========== -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Testimonials</span>
+                <h2>What Clients <span class="gradient-text">Say</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p>"Fekadu delivered an outstanding brand identity for our startup. His attention to detail and creative vision exceeded our expectations."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">AM</div>
+                        <div><strong>Amin Mohammed</strong><span>Tech Startup CEO</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-delay="100">
+                    <div class="stars">★★★★★</div>
+                    <p>"Incredible UI design work! He understood exactly what we needed and created something modern, clean, and highly professional."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">SK</div>
+                        <div><strong>Sara Kebede</strong><span>E-Commerce Owner</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-delay="200">
+                    <div class="stars">★★★★★</div>
+                    <p>"Our social media presence completely transformed. Engagement went up by 300% after Fekadu's design campaign."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">BT</div>
+                        <div><strong>Bereket Tadesse</strong><span>Marketing Manager</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Get In Touch</span>
+                <h2>Let's Work <span class="gradient-text">Together</span></h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Ready to start a project?</h3>
+                    <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+                    <div class="contact-items">
+                        <a href="mailto:fekemark6@gmail.com" class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div><strong>Email</strong><span>fekemark6@gmail.com</span></div>
+                        </a>
+                        <a href="https://wa.me/251927290916" target="_blank" class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div><strong>WhatsApp</strong><span>+251 927 290 916</span></div>
+                        </a>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div><strong>Location</strong><span>Addis Ababa, Ethiopia</span></div>
                         </div>
                     </div>
                 </div>
+                <form class="contact-form" data-aos="fade-left" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" id="clientName" placeholder="e.g. John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Email</label>
+                            <input type="email" id="clientEmail" placeholder="you@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Needed</label>
+                        <select id="clientService">
+                            <option>Logo & Branding</option>
+                            <option>UI / UX Design</option>
+                            <option>Social Media Design</option>
+                            <option>Motion Design</option>
+                            <option>Web Development</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Message</label>
+                        <textarea id="clientMessage" rows="5" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <button type="button" class="btn-primary btn-full" onclick="sendToGmail()">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="modal-overlay" id="portfolioModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('portfolioModal')">&times;</span>
-            <h2 class="modal-title">Portfolio</h2>
-            <p style="color:var(--text-gray); margin-top:10px;">A selection of my works that showcase visual
-                storytelling and technical skill.</p>
-
-            <div class="portfolio-grid">
-                <div class="project-card">
-                    <h3>Logo Design</h3>
-                    <p>Establishing strong brand identities with clean, minimal, and balanced concepts.</p>
-                    <div class="tools-box">Tools: Adobe Illustrator</div>
-                </div>
-                <div class="project-card">
-                    <h3>Branding & Identity</h3>
-                    <p>Complete professional visual systems including color palettes and typography.</p>
-                    <div class="tools-box">Tools: Illustrator, Photoshop</div>
-                </div>
-                <div class="project-card">
-                    <h3>Social Media Design</h3>
-                    <p>Engaging creative posts designed to increase brand visibility and audience growth.</p>
-                    <div class="tools-box">Tools: Photoshop</div>
-                </div>
-                <div class="project-card">
-                    <h3>UI / Web Design</h3>
-                    <p>User-friendly website interfaces designed with intuitive layouts and modern structures.</p>
-                    <div class="tools-box">Tools: Figma, Photoshop</div>
-                </div>
-            </div>
-
-            <div class="role-section">
-                <h3 style="margin-bottom:5px;">My Role: Graphic Designer</h3>
-                <p style="font-size:14px; opacity:0.9;">Concept development, visual design, layout, and presentation.
-                </p>
-                <p style="font-size:12px; margin-top:10px; font-weight:700; color: #5d78ff;">SKILLS: Branding, UI
-                    Design, Color Theory, Creative Strategy</p>
-            </div>
-
-            <button class="btn-send" style="width:auto; padding:12px 35px; margin-top:25px;"
-                onclick="openModal('contactModal')">Work With Me</button>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="contactModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('contactModal')">&times;</span>
-            <h2 class="modal-title">Contact Me</h2>
-            <div class="contact-grid">
-                <div class="contact-info-box">
-                    <h4>Contact Details</h4>
-                    <p style="margin-top:15px;"><i class="fas fa-envelope"></i> fekemark6@gmail.com</p>
-                    <p><i class="fab fa-whatsapp"></i> +251 927 290 916</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Ethiopia</p>
-                </div>
-                <div class="contact-form">
-                    <h4>Send Message</h4>
-                    <input type="text" id="clientName" placeholder="Your Name" required>
-                    <textarea id="clientMessage" placeholder="Your Message" rows="4" required></textarea>
-                    <button type="button" class="btn-send" onclick="sendToGmail()">Send Message</button>
-                </div>
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">Mark<span>.</span></div>
+            <p>© 2026 Fekadu Markos. Crafted with ❤️ in Ethiopia.</p>
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/fekadu.mark" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/fekadu_markos" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/Fekadu_Markos" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.linkedin.com/in/fekadu-markos-a44a76320" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
-    </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="assets/js/script.js"></script>
-
 </body>
 
 </html>
