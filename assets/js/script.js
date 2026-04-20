@@ -210,9 +210,54 @@ function sendToGmail() {
     window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${myEmail}&su=${subject}&body=${body}`, '_blank');
 }
 
+// ========== LIGHTBOX & HOVER PREVIEW ==========
+function openLightbox(src, caption) {
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    const cap = document.getElementById('lightboxCaption');
+    if (!lightbox || !img) return;
+    lightbox.style.display = "block";
+    img.src = src;
+    if (cap) cap.textContent = caption;
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) lightbox.style.display = "none";
+}
+
+function initHoverPreview() {
+    const cards = document.querySelectorAll('.portfolio-card');
+    const preview = document.getElementById('hoverPreview');
+    const previewImg = document.getElementById('hoverPreviewImg');
+
+    if (!preview || !previewImg) return;
+
+    cards.forEach(card => {
+        const img = card.querySelector('.portfolio-real-img');
+        if (!img) return;
+
+        card.addEventListener('mouseenter', () => {
+            previewImg.src = img.src;
+            preview.style.display = 'block';
+            setTimeout(() => preview.classList.add('active'), 10);
+        });
+
+        card.addEventListener('mouseleave', () => {
+            preview.classList.remove('active');
+            setTimeout(() => {
+                if (!preview.classList.contains('active')) {
+                    preview.style.display = 'none';
+                }
+            }, 400);
+        });
+    });
+}
+
 // ========== INIT ALL ==========
 document.addEventListener('DOMContentLoaded', () => {
     type();
     initAOS();
     initPortfolioFilter();
+    initHoverPreview();
 });
