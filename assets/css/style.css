@@ -41,7 +41,12 @@
    ============================== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html { 
+    scroll-behavior: smooth; 
+    scroll-padding-top: 80px; 
+    overflow-x: hidden;
+    width: 100%;
+}
 
 body {
     font-family: 'Inter', sans-serif;
@@ -1056,6 +1061,14 @@ a { text-decoration: none; color: inherit; }
     .orbit { display: none; }
     .card-1, .card-2 { display: none; }
     .footer-container { flex-direction: column; text-align: center; }
+    .container, .nav-container { width: 94%; }
+    .hero { padding: 100px 3% 60px; }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 { font-size: 2.2rem; }
+    .container, .nav-container { width: 95%; }
+    .section { padding: 70px 0; }
 }
 
 /* ==============================
