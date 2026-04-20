@@ -235,8 +235,10 @@ function initHoverPreview() {
 
     cards.forEach(card => {
         const img = card.querySelector('.portfolio-real-img');
+        const title = card.querySelector('h4')?.textContent || 'Project';
         if (!img) return;
 
+        // Hover Effect
         card.addEventListener('mouseenter', () => {
             previewImg.src = img.src;
             preview.style.display = 'block';
@@ -251,6 +253,14 @@ function initHoverPreview() {
                 }
             }, 400);
         });
+
+        // Click to Full Screen Pop-Up (Lightbox)
+        card.addEventListener('click', () => {
+            openLightbox(img.src, title);
+        });
+
+        // Add pointer cursor to signify clickability
+        card.style.cursor = 'pointer';
     });
 }
 
