@@ -262,6 +262,9 @@
                         </div>
                     </div>
                     <div class="portfolio-info"><h4>Poster & Print</h4><span class="portfolio-tag">UI Design</span></div>
+                    <div class="portfolio-btn" onclick="openLightbox('assets/images/Service7.jpg', 'Poster & Print')">
+                        <i class="fas fa-expand-alt"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -376,6 +379,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Full Image Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+        <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
 
     <!-- Back to top -->
     <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
