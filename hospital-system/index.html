@@ -4,100 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Queue Board | Nigist Elin Hospital</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
+    <!-- Google Fonts & Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Main Style -->
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Specific page override for Fullscreen Display */
-        body { background: #0f172a; color: white; }
-    </style>
 </head>
 <body>
 
     <header>
         <div class="logo-area">
             <div class="logo-icon">
-                <i class="fas fa-hospital-user"></i>
+                <i class="fas fa-hospital"></i>
             </div>
             <div class="hospital-name">
                 <h1>NIGIST ELIN HOSPITAL</h1>
-                <p>PATIENT QUEUE MANAGEMENT SYSTEM</p>
+                <p>Advanced Care & Priority System</p>
             </div>
         </div>
-        <div id="liveClock" style="font-size: 1.5rem; font-weight: 700; color: var(--secondary);">00:00:00</div>
+        <div id="liveClock" style="font-family: 'Outfit'; font-size: 1.8rem; font-weight: 800; color: var(--text-main);">00:00:00</div>
     </header>
 
-    <main class="queue-display">
-        <div class="container">
-            
-            <!-- Global Now Serving Section -->
-            <div class="now-serving">
-                <span style="letter-spacing: 4px; font-weight: 600; opacity: 0.7;">NOW SERVING / አሁን ተረኛ</span>
-                <div class="current-number" id="mainToken">A-125</div>
-                <div style="font-size: 1.5rem; font-weight: 600;">
-                    Please proceed to <span style="color: var(--accent);">WINDOW 04</span>
-                </div>
+    <main class="container">
+        
+        <!-- MAIN DISPLAY SECTION -->
+        <section class="queue-display-main" data-aos="fade-up">
+            <span class="now-serving-label">NOW SERVING / አሁን ተረኛ</span>
+            <div class="current-token" id="mainToken">A-125</div>
+            <div style="font-size: 1.8rem; font-weight: 600; opacity: 0.9;">
+                PLEASE PROCEED TO <span style="color: var(--accent); font-weight: 800;">WINDOW 04</span>
+            </div>
+        </section>
+
+        <!-- SUB WINDOWS GRID -->
+        <div class="windows-grid">
+            <div class="glass-card window-item" data-aos="fade-up" style="animation-delay: 0.1s;">
+                <h3><i class="fas fa-cash-register"></i> Window 01 - Cashier</h3>
+                <div class="token">A-122</div>
+                <span class="tag" style="background: var(--primary-light); color: var(--primary); font-weight: 700; border-radius: 8px; padding: 4px 12px;">Active</span>
             </div>
 
-            <!-- Windows Grid -->
-            <div class="window-list">
-                <!-- Window 1: Cashier -->
-                <div class="window-card">
-                    <h3>WINDOW 01 (Cashier)</h3>
-                    <div class="number">A-122</div>
-                </div>
-                <!-- Window 2: Pharmacy -->
-                <div class="window-card">
-                    <h3>WINDOW 02 (Pharmacy)</h3>
-                    <div class="number">B-045</div>
-                </div>
-                <!-- Window 3: Registration -->
-                <div class="window-card">
-                    <h3>WINDOW 03 (Registration)</h3>
-                    <div class="number">A-124</div>
-                </div>
-                <!-- Window 4: Lab -->
-                <div class="window-card alert-anim" style="background: rgba(16, 185, 129, 0.2); border: 2px solid var(--secondary);">
-                    <h3>WINDOW 04 (Laboratory)</h3>
-                    <div class="number">A-125</div>
-                </div>
+            <div class="glass-card window-item" data-aos="fade-up" style="animation-delay: 0.2s;">
+                <h3><i class="fas fa-pills"></i> Window 02 - Pharmacy</h3>
+                <div class="token">B-045</div>
+                <span class="tag" style="background: var(--primary-light); color: var(--primary); font-weight: 700; border-radius: 8px; padding: 4px 12px;">Active</span>
+            </div>
+
+            <div class="glass-card window-item" data-aos="fade-up" style="animation-delay: 0.3s;">
+                <h3><i class="fas fa-user-injured"></i> Window 03 - Triage</h3>
+                <div class="token">A-124</div>
+                <span class="tag" style="background: var(--primary-light); color: var(--primary); font-weight: 700; border-radius: 8px; padding: 4px 12px;">Active</span>
+            </div>
+
+            <div class="glass-card window-item active-call" data-aos="fade-up" style="animation-delay: 0.4s; border: 2px solid var(--secondary);">
+                <h3><i class="fas fa-microscope"></i> Window 04 - Lab</h3>
+                <div class="token" style="color: var(--secondary);">A-125</div>
+                <span class="tag" style="background: #10b98120; color: var(--secondary); font-weight: 700; border-radius: 8px; padding: 4px 12px;">Calling...</span>
             </div>
         </div>
     </main>
 
-    <!-- News Ticker / Footer -->
-    <div style="background: var(--primary); padding: 0.5rem; position: fixed; bottom: 0; width: 100%; overflow: hidden;">
-        <div style="display: flex; white-space: nowrap; animation: ticker 30s linear infinite;">
-            <p style="padding-right: 50px;">Welcome to Nigist Elin Hospital. Your health is our priority. | በንገሥተ ይህሊን ሆስፒታል በደህና መጡ! ጤናዎ ለኛ ቅድሚያ የሚሰጠው ጉዳይ ነው። | Please wait for your number to be called on the screen. | እባክዎ ቁጥርዎን በስክሪኑ ላይ እስኪጠራ ይጠብቁ።</p>
-        </div>
-    </div>
-
-    <style>
-        @keyframes ticker {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-    </style>
+    <footer class="ticker-wrap">
+        <marquee behavior="scroll" direction="left" scrollamount="8">
+            <span style="margin-right: 100px; font-weight: 600;">Welcome to Nigist Elin Hospital. Your health is our priority. | በንገሥተ ይህሊን ሆስፒታል በደህና መጡ! ጤናዎ ለኛ ቅድሚያ የሚሰጠው ጉዳይ ነው።</span>
+            <span style="margin-right: 100px; font-weight: 600;">Emergency services are available 24/7. | የድንገተኛ ክፍል አገልግሎት ለ 24 ሰዓታት ክፍት ነው።</span>
+        </marquee>
+    </footer>
 
     <script>
-        // Simple Live Clock
         function updateTime() {
             const now = new Date();
-            document.getElementById('liveClock').textContent = now.toLocaleTimeString();
+            document.getElementById('liveClock').textContent = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
         }
         setInterval(updateTime, 1000);
         updateTime();
-
-        // Audio Notification Simulation (Call Function)
-        function notifyPatient(token, window) {
-            // In a real app, this would play a sound like "Ting!"
-            console.log(`Calling Patient ${token} to Window ${window}`);
-        }
     </script>
 </body>
 </html>
