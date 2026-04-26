@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard | Nigist Elin Hospital</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .staff-header {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .staff-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .main-control {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius);
+            text-align: center;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        .current-serving-card {
+            background: var(--bg-main);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 2px solid var(--primary);
+        }
+        .btn-call {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        .btn-call:hover { transform: translateY(-3px); background: var(--primary-dark); }
+        .btn-call:active { transform: translateY(0); }
+
+        .btn-secondary {
+            background: white;
+            border: 2px solid var(--border);
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+        .waiting-list {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+        .waiting-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .tag {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .tag-waiting { background: #fee2e2; color: #ef4444; }
+    </style>
+</head>
+<body>
+
+    <div class="staff-header">
+        <div class="logo-area">
+            <div class="logo-icon"><i class="fas fa-stethoscope"></i></div>
+            <div>
+                <h1 style="font-size: 1.2rem; margin: 0;">Staff Dashboard</h1>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Laboratory Department | Window 04</p>
+            </div>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <div style="text-align: right;">
+                <p style="font-weight: 700;">Abraham Tadesse</p>
+                <p style="font-size: 0.75rem; color: var(--secondary);">● Online</p>
+            </div>
+            <div style="width: 45px; height: 45px; background: #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="staff-grid">
+            <!-- Left Side: Controls -->
+            <div class="main-control">
+                <span class="tag" style="background: rgba(37, 99, 235, 0.1); color: var(--primary);">ACTIVE SESSION</span>
+                
+                <div class="current-serving-card">
+                    <p style="color: var(--text-muted); font-weight: 600;">NOW SERVING / አሁን ተረኛ</p>
+                    <h1 id="activeNumber" style="font-size: 6rem; font-weight: 800; color: var(--primary);">A-125</h1>
+                    <p id="waitTime" style="font-size: 0.9rem; color: var(--text-muted);">Serving for 04:22 mins</p>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <button class="btn-call" onclick="nextPatient()">
+                        <i class="fas fa-bullhorn" style="margin-right: 10px;"></i> CALL NEXT PATIENT
+                    </button>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <button class="btn-secondary"><i class="fas fa-redo"></i> RECALL</button>
+                        <button class="btn-secondary"><i class="fas fa-share-square"></i> TRANSFER</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Waiting List -->
+            <div class="waiting-list">
+                <h3 style="margin-bottom: 1.5rem;"><i class="fas fa-users"></i> Waiting List (12)</h3>
+                
+                <div class="waiting-item">
+                    <div><strong>A-126</strong><br><small>General Checkup</small></div>
+                    <span class="tag tag-waiting">Waiting 12m</span>
+                </div>
+                <div class="waiting-item">
+                    <div><strong>A-127</strong><br><small>Blood Test</small></div>
+                    <span class="tag tag-waiting">Waiting 08m</span>
+                </div>
+                <div class="waiting-item">
+                    <div><strong>A-128</strong><br><small>Lab Result</small></div>
+                    <span class="tag tag-waiting">Waiting 05m</span>
+                </div>
+                <div class="waiting-item">
+                    <div><strong>A-129</strong><br><small>Consultation</small></div>
+                    <span class="tag tag-waiting">Waiting 02m</span>
+                </div>
+
+                <button class="btn-secondary" style="margin-top: 2rem; border-style: dashed;">VIEW ALL LIST</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function nextPatient() {
+            // Mock functionality for demo
+            const currentNum = document.getElementById('activeNumber').textContent;
+            const prefix = currentNum.split('-')[0];
+            const num = parseInt(currentNum.split('-')[1]) + 1;
+            
+            document.getElementById('activeNumber').textContent = prefix + "-" + num;
+            document.getElementById('waitTime').textContent = "Serving for 00:01 mins";
+            
+            // Interaction feedback
+            const card = document.querySelector('.current-serving-card');
+            card.style.borderColor = 'var(--secondary)';
+            setTimeout(() => { card.style.borderColor = 'var(--primary)'; }, 500);
+        }
+    </script>
+</body>
+</html>

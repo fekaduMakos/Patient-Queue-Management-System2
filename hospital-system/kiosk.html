@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Kiosk | Nigist Elin Hospital</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .kiosk-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: radial-gradient(circle at top right, #f8fafc, #e2e8f0);
+            padding: 2rem;
+        }
+        .service-btn {
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .service-btn:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
+        }
+        .service-btn i {
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        .service-btn h2 { font-size: 1.5rem; color: var(--text-main); }
+        .service-btn span { color: var(--text-muted); font-weight: 500; }
+
+        /* Modal for Ticket */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .ticket {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            border: 2px dashed var(--border);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="kiosk-container">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h1 style="font-family: 'Outfit'; font-size: 3rem; color: var(--primary);">Nigist Elin Hospital</h1>
+                <p style="font-size: 1.5rem; color: var(--text-muted);">Please select your service / እባክዎ አገልግሎት ይምረጡ</p>
+            </div>
+
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <!-- Registration -->
+                <div class="service-btn" onclick="printTicket('A', 'Registration / ምዝገባ')">
+                    <i class="fas fa-user-plus"></i>
+                    <div>
+                        <h2>Registration</h2>
+                        <span>ምዝገባ</span>
+                    </div>
+                </div>
+
+                <!-- Cashier -->
+                <div class="service-btn" onclick="printTicket('C', 'Cashier / ክፍያ')">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <div>
+                        <h2>Cashier</h2>
+                        <span>ክፍያ / ካሼር</span>
+                    </div>
+                </div>
+
+                <!-- Pharmacy -->
+                <div class="service-btn" onclick="printTicket('B', 'Pharmacy / መድሃኒት ቤት')">
+                    <i class="fas fa-pills"></i>
+                    <div>
+                        <h2>Pharmacy</h2>
+                        <span>መድሃኒት ቤት</span>
+                    </div>
+                </div>
+
+                <!-- Lab -->
+                <div class="service-btn" onclick="printTicket('L', 'Laboratory / ላቦራቶሪ')">
+                    <i class="fas fa-microscope"></i>
+                    <div>
+                        <h2>Laboratory</h2>
+                        <span>ላቦራቶሪ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ticket Modal -->
+    <div id="ticketModal" class="modal">
+        <div class="ticket">
+            <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+            <h2 id="deptName">Department</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">YOUR NUMBER / የእርስዎ ቁጥር</p>
+            <div id="ticketNumber" style="font-size: 5rem; font-weight: 800; color: var(--primary); margin: 1rem 0;">A-126</div>
+            <p id="ticketTime" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2rem;"></p>
+            <p style="font-weight: 600;">Please wait for your turn.<br>እባክዎ ተራዎ እስኪደርስ ይጠብቁ።</p>
+        </div>
+    </div>
+
+    <script>
+        function printTicket(prefix, name) {
+            // Generate random/mock number for demo
+            const num = Math.floor(Math.random() * 200) + 100;
+            const fullToken = prefix + "-" + num;
+            
+            document.getElementById('deptName').textContent = name;
+            document.getElementById('ticketNumber').textContent = fullToken;
+            document.getElementById('ticketTime').textContent = "Time: " + new Date().toLocaleString();
+            
+            const modal = document.getElementById('ticketModal');
+            modal.style.display = 'flex';
+            
+            // Auto hide after 5 seconds to reset kiosk
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 5000);
+        }
+
+        // Close modal on click
+        window.onclick = function(event) {
+            const modal = document.getElementById('ticketModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
