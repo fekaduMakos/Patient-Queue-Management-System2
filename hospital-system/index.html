@@ -3,78 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Queue Board | Nigist Elin Hospital</title>
-    <!-- Google Fonts & Font Awesome -->
+    <title>Queue Display | Nigist Elin Hospital</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .queue-display-main {
+            background: white;
+            border: 2px solid var(--primary-light);
+            box-shadow: 0 40px 100px rgba(2, 132, 199, 0.05);
+            text-align: center;
+            padding: 5rem 2rem;
+            border-radius: 40px;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .current-token {
+            font-size: 10rem;
+            font-weight: 900;
+            font-family: 'Outfit';
+            color: var(--primary);
+            margin: 1rem 0;
+            line-height: 1;
+        }
+        .windows-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .window-card {
+            background: white;
+            padding: 2.5rem;
+            text-align: center;
+            border-bottom: 6px solid var(--primary);
+        }
+        .now-serving-label {
+            background: var(--secondary);
+            color: white;
+            padding: 8px 30px;
+            border-radius: 50px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        footer.ticker-wrap {
+            background: var(--primary);
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
     <header>
         <div class="logo-area">
-            <div class="logo-icon">
-                <i class="fas fa-hospital"></i>
-            </div>
+            <div class="logo-icon"><i class="fas fa-hospital"></i></div>
             <div class="hospital-name">
                 <h1>NIGIST ELIN HOSPITAL</h1>
-                <p>Advanced Care & Priority System</p>
+                <p>PATIENT QUEUE MANAGEMENT</p>
             </div>
         </div>
-        <div id="liveClock" style="font-family: 'Outfit'; font-size: 1.8rem; font-weight: 800; color: var(--text-main);">00:00:00</div>
+        <div id="liveClock" style="font-family: 'Outfit'; font-size: 1.5rem; font-weight: 800; color: var(--primary);">00:00:00</div>
     </header>
 
     <main class="container">
-        
-        <!-- MAIN DISPLAY SECTION -->
-        <section class="queue-display-main" data-aos="fade-up">
+        <!-- GLOBAL STATUS -->
+        <section class="queue-display-main" data-aos="zoom-in">
             <span class="now-serving-label">NOW SERVING / አሁን ተረኛ</span>
-            <div class="current-token" id="mainToken">A-125</div>
-            <div style="font-size: 1.8rem; font-weight: 600; opacity: 0.9;">
-                PLEASE PROCEED TO <span style="color: var(--accent); font-weight: 800;">WINDOW 04</span>
-            </div>
+            <div class="current-token" id="mainToken">---</div>
+            <div id="callMessage" style="font-size: 1.5rem; font-weight: 600; color: var(--text-muted);">WAITING FOR NEXT CALL</div>
         </section>
 
-        <!-- SUB WINDOWS GRID -->
-        <div class="windows-grid">
-            <div class="glass-card window-item" data-aos="fade-up" style="animation-delay: 0.1s;">
-                <h3><i class="fas fa-cash-register"></i> Window 01 - Cashier</h3>
-                <div class="token">A-122</div>
-                <span class="tag" style="background: var(--primary-light); color: var(--primary); font-weight: 700; border-radius: 8px; padding: 4px 12px;">Active</span>
-            </div>
-
-            <div class="glass-card window-item" data-aos="fade-up" style="animation-delay: 0.2s;">
-                <h3><i class="fas fa-pills"></i> Window 02 - Pharmacy</h3>
-                <div class="token">B-045</div>
-                <span class="tag" style="background: var(--primary-light); color: var(--primary); font-weight: 700; border-radius: 8px; padding: 4px 12px;">Active</span>
-            </div>
-
-            <div class="glass-card window-item" data-aos="fade-up" style="animation-delay: 0.3s;">
-                <h3><i class="fas fa-user-injured"></i> Window 03 - Triage</h3>
-                <div class="token">A-124</div>
-                <span class="tag" style="background: var(--primary-light); color: var(--primary); font-weight: 700; border-radius: 8px; padding: 4px 12px;">Active</span>
-            </div>
-
-            <div class="glass-card window-item active-call" data-aos="fade-up" style="animation-delay: 0.4s; border: 2px solid var(--secondary);">
-                <h3><i class="fas fa-microscope"></i> Window 04 - Lab</h3>
-                <div class="token" style="color: var(--secondary);">A-125</div>
-                <span class="tag" style="background: #10b98120; color: var(--secondary); font-weight: 700; border-radius: 8px; padding: 4px 12px;">Calling...</span>
-            </div>
+        <!-- WINDOWS STATUS -->
+        <div class="windows-grid" id="windowsGrid">
+            <!-- Dynamically loaded -->
         </div>
     </main>
 
     <footer class="ticker-wrap">
-        <marquee behavior="scroll" direction="left" scrollamount="8">
-            <span style="margin-right: 100px; font-weight: 600;">Welcome to Nigist Elin Hospital. Your health is our priority. | በንገሥተ ይህሊን ሆስፒታል በደህና መጡ! ጤናዎ ለኛ ቅድሚያ የሚሰጠው ጉዳይ ነው።</span>
-            <span style="margin-right: 100px; font-weight: 600;">Emergency services are available 24/7. | የድንገተኛ ክፍል አገልግሎት ለ 24 ሰዓታት ክፍት ነው።</span>
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+            Nigist Elin Hospital: Dedicated to Excellence in Healthcare. | Please wait for your turn. | ንግሥተ ይህሊን ሆስፒታል፡ ለተሻለ የጤና አገልግሎት እንተጋለን። | እባክዎ ተራዎን በትዕግስት ይጠብቁ።
         </marquee>
     </footer>
 
     <script>
+        async function fetchStatus() {
+            try {
+                const response = await fetch('php/api/get_status.php');
+                const data = await response.json();
+
+                if (data.success) {
+                    // Update Main Display
+                    if (data.latest) {
+                        const tokenEl = document.getElementById('mainToken');
+                        const msgEl = document.getElementById('callMessage');
+                        
+                        if (tokenEl.innerText !== data.latest.token_number) {
+                            tokenEl.innerText = data.latest.token_number;
+                            msgEl.innerHTML = `PROCEED TO <span style="color:var(--primary)">WINDOW ${data.latest.window_number.toString().padStart(2, '0')}</span>`;
+                            tokenEl.style.transform = 'scale(1.1)';
+                            setTimeout(() => { tokenEl.style.transform = 'scale(1)'; }, 300);
+                        }
+                    }
+
+                    // Update Grid
+                    const grid = document.getElementById('windowsGrid');
+                    grid.innerHTML = '';
+                    data.windows.forEach(win => {
+                        grid.innerHTML += `
+                            <div class="glass-card window-card">
+                                <h3 style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase;">${win.counter_name}</h3>
+                                <div style="font-size: 3rem; font-weight: 800; color: var(--text-main); font-family: 'Outfit'; margin: 0.8rem 0;">${win.current_token || '---'}</div>
+                                <p style="font-weight: 700; color: var(--primary);">WINDOW ${win.window_number.toString().padStart(2, '0')}</p>
+                            </div>
+                        `;
+                    });
+                }
+            } catch (error) {
+                console.error("Fetch error:", error);
+            }
+        }
+
         function updateTime() {
             const now = new Date();
-            document.getElementById('liveClock').textContent = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+            document.getElementById('liveClock').innerText = now.toLocaleTimeString();
         }
+
+        setInterval(fetchStatus, 3000);
         setInterval(updateTime, 1000);
+        fetchStatus();
         updateTime();
     </script>
 </body>
